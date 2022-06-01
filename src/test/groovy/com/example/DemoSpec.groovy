@@ -12,7 +12,7 @@ class DemoSpec extends Specification {
         task.apply("a", ["b", "c"])
         task.apply("d", ["e", "f"])
         task.apply("k", ["l"])
-        task.apply("x", ["y", "z"])
+        //task.apply("x", ["y", "z"])
 
         when: 'a new connection is defined between a, d and k'
         task.apply("a", ["d", "k"])

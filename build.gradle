@@ -26,6 +26,7 @@ dependencies {
     implementation("javax.annotation:javax.annotation-api")
     implementation("io.micronaut:micronaut-http-client")
     runtimeOnly("ch.qos.logback:logback-classic")
+    testCompile("junit:junit:4.12")
 }
 
 
@@ -33,8 +34,12 @@ application {
     mainClass.set("com.example.Application")
 }
 java {
-    sourceCompatibility = JavaVersion.toVersion("15")
-    targetCompatibility = JavaVersion.toVersion("15")
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+test {
+    useJUnitPlatform()
 }
 
 

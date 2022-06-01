@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.Objects;
+
 public class Connection {
     private String connectFrom;
     private String connectTo;
@@ -7,11 +9,6 @@ public class Connection {
     public Connection(String connectFrom, String connectTo) {
         this.connectFrom = connectFrom;
         this.connectTo = connectTo;
-    }
-
-    @Override
-    public String toString() {
-        return connectFrom + " - " + connectTo;
     }
 
     public String getConnectFrom() {
@@ -28,5 +25,24 @@ public class Connection {
 
     public void setConnectTo(String connectTo) {
         this.connectTo = connectTo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Connection that = (Connection) o;
+        return connectFrom.equals(that.connectFrom) &&
+                connectTo.equals(that.connectTo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(connectFrom, connectTo);
+    }
+
+    @Override
+    public String toString() {
+        return connectFrom + " - " + connectTo;
     }
 }
